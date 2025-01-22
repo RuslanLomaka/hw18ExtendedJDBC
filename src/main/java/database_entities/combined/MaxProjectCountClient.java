@@ -1,6 +1,8 @@
-package database_entities;
+package database_entities.combined;
 
-public class MaxProjectCountClient implements DataBaseEntity{
+import database_entities.DataBaseEntity;
+
+public class MaxProjectCountClient implements DataBaseEntity {
     private final String name;
     private  final int  projectCount;
 

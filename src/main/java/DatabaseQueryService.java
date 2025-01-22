@@ -1,12 +1,11 @@
 import database_entities.*;
+import database_entities.combined.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +64,28 @@ public class DatabaseQueryService {
         );
     }
 
-    public <E extends DataBaseEntity> List<E> executeQuery(String sqlFileUrl, ResultSetMapper<E> mapper) {
+
+    private void printResultSet(ResultSet resultSet) throws SQLException {
+        ResultSetMetaData metaData = resultSet.getMetaData();
+        int columnCount = metaData.getColumnCount();
+
+        // Print column names
+        for (int i = 1; i <= columnCount; i++) {
+            System.out.print(metaData.getColumnName(i) + "\t");
+        }
+        System.out.println();
+
+        // Print rows
+        while (resultSet.next()) {
+            for (int i = 1; i <= columnCount; i++) {
+                Object value = resultSet.getObject(i); // Get value dynamically
+                System.out.print(value + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    private <E extends DataBaseEntity> List<E> executeQuery(String sqlFileUrl, ResultSetMapper<E> mapper) {
         List<E> entities = new ArrayList<>();
         try (Connection conn = Database.getInstance().getConnection();
              Statement statement = conn.createStatement();
@@ -91,5 +111,14 @@ public class DatabaseQueryService {
             logger.error("SQL statement problem: ", e);
         }
         return entities;
+
+
+
     }
+
+
+
+
+
+
 }

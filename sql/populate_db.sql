@@ -1,4 +1,4 @@
-DELETE FROM project_worker; DELETE FROM project; DELETE FROM worker; DELETE FROM client;
+DELETE  FROM project_worker; DELETE FROM project; DELETE FROM worker; DELETE FROM client;
 
 INSERT INTO worker (ID, NAME, BIRTHDAY, LEVEL, SALARY)
 VALUES

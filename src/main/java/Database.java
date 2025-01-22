@@ -1,9 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.LinkedList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +19,39 @@ public class Database {
     public static final String MAX_SALARY_WORKER_SQL = "sql/find_max_salary_worker.sql";
     public static final String FIND_LONGEST_PROJECT_SQL = "sql/find_longest_project.sql";
     public static final String PRINT_PROJECT_PRICES = "sql/print_project_prices.sql";
+
+    static{
+        LinkedList<String> statementsUrlList = new LinkedList<>();
+
+        statementsUrlList.add(Database.MAX_PROJECTS_CLIENT_SQL);
+        statementsUrlList.add(Database.YOUNGEST_ELDEST_WORKERS_SQL);
+        statementsUrlList.add(Database.MAX_SALARY_WORKER_SQL);
+        statementsUrlList.add(Database.FIND_LONGEST_PROJECT_SQL);
+        statementsUrlList.add(Database.PRINT_PROJECT_PRICES);
+
+        LinkedList<String> statementsList = new LinkedList<>();
+
+        for (String statementUrl : statementsUrlList) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(statementUrl))) {
+                StringBuilder sql = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sql.append(line).append(" ");
+                    if (line.trim().endsWith(";")) {
+                        statementsList.add(sql.toString().trim());
+                        sql.setLength(0); // Clear the SQL builder for the next statement
+                    }
+                }
+            } catch (Exception e) {
+                logger.error("Error reading SQL file: {}", statementUrl, e);
+            }
+        }
+
+        // Print statements for verification
+        for (String statement : statementsList) {
+            System.out.println(statement);
+        }
+    }
 
 
     public static Database getInstance() {

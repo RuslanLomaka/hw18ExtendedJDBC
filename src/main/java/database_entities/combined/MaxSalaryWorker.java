@@ -1,4 +1,6 @@
-package database_entities;
+package database_entities.combined;
+
+import database_entities.DataBaseEntity;
 
 public class MaxSalaryWorker implements DataBaseEntity {
     private final String name;

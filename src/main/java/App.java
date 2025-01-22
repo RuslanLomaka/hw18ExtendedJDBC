@@ -1,4 +1,4 @@
-import database_entities.*;
+import database_entities.combined.*;
 
 import java.util.List;
 
@@ -47,6 +47,7 @@ public class App {
         }
         long endTime = System.currentTimeMillis();
         System.out.println("Execution Time: " + (endTime - startTime) + "ms");
+
 
     }
 }
