@@ -6,10 +6,10 @@ public class App {
     public static void main(String[] args) {
         new DatabaseInitService().init();
         DatabasePopulateService databasePopulateService = new DatabasePopulateService();
-        databasePopulateService.populate();
-        databasePopulateService.collectionsInit();
-        databasePopulateService.clearAllTables();
-        databasePopulateService.populateFromCollections();
+        databasePopulateService.populate();//populate DB from the sql files
+        databasePopulateService.collectionsInit();//populate the collections from DB
+        databasePopulateService.clearAllTables();//clear DB's content
+        databasePopulateService.populateFromCollections();//populate DB using prepared statements and batch processing
 
 
 
