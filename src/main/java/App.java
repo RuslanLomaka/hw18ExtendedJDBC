@@ -5,7 +5,14 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         new DatabaseInitService().init();
-        new DatabasePopulateService().populate();
+        DatabasePopulateService databasePopulateService = new DatabasePopulateService();
+        databasePopulateService.populate();
+        databasePopulateService.collectionsInit();
+        databasePopulateService.clearAllTables();
+        databasePopulateService.populateFromCollections();
+
+
+
 
         DatabaseQueryService queryService = new DatabaseQueryService();
 
@@ -45,9 +52,11 @@ public class App {
         for (ProjectPrice projectPrice : projectPrices) {
             System.out.println(projectPrice);
         }
+
+
+
+
         long endTime = System.currentTimeMillis();
         System.out.println("Execution Time: " + (endTime - startTime) + "ms");
-
-
     }
 }

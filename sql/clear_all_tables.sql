@@ -1,0 +1,1 @@
+DELETE  FROM project_worker; DELETE FROM project; DELETE FROM worker; DELETE FROM client;

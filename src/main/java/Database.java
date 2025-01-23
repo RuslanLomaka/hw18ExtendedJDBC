@@ -19,6 +19,7 @@ public class Database {
     public static final String MAX_SALARY_WORKER_SQL = "sql/find_max_salary_worker.sql";
     public static final String FIND_LONGEST_PROJECT_SQL = "sql/find_longest_project.sql";
     public static final String PRINT_PROJECT_PRICES = "sql/print_project_prices.sql";
+    public static final String CLEAR_ALL_TABLES_SQL ="sql/clear_all_tables.sql";
 
     static{
         LinkedList<String> statementsUrlList = new LinkedList<>();

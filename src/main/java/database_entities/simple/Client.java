@@ -1,21 +1,8 @@
-package database_entities;
+package database_entities.simple;
 
-public class Client implements DataBaseEntity {
-    private final int id;
-    private final String name;
+import database_entities.DataBaseEntity;
 
-    public Client(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
+public record Client(int id, String name) implements DataBaseEntity {
 
     @Override
     public String toString() {

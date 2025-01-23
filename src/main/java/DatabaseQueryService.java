@@ -64,27 +64,6 @@ public class DatabaseQueryService {
         );
     }
 
-
-    private void printResultSet(ResultSet resultSet) throws SQLException {
-        ResultSetMetaData metaData = resultSet.getMetaData();
-        int columnCount = metaData.getColumnCount();
-
-        // Print column names
-        for (int i = 1; i <= columnCount; i++) {
-            System.out.print(metaData.getColumnName(i) + "\t");
-        }
-        System.out.println();
-
-        // Print rows
-        while (resultSet.next()) {
-            for (int i = 1; i <= columnCount; i++) {
-                Object value = resultSet.getObject(i); // Get value dynamically
-                System.out.print(value + "\t");
-            }
-            System.out.println();
-        }
-    }
-
     private <E extends DataBaseEntity> List<E> executeQuery(String sqlFileUrl, ResultSetMapper<E> mapper) {
         List<E> entities = new ArrayList<>();
         try (Connection conn = Database.getInstance().getConnection();
@@ -111,14 +90,5 @@ public class DatabaseQueryService {
             logger.error("SQL statement problem: ", e);
         }
         return entities;
-
-
-
     }
-
-
-
-
-
-
 }
