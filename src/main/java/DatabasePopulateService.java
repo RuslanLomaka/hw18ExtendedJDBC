@@ -139,8 +139,4 @@ public class DatabasePopulateService {
         System.out.println("Project-Workers list = " + projectWorkersList);
 
     }
-
-    public void populate() {
-        Database.getInstance().executeSqlStatement(Database.POPULATE_SQL);
-    }
 }

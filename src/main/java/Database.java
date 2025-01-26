@@ -12,8 +12,8 @@ public class Database {
     private static final Database instance = new Database();
     private static final Logger logger = LoggerFactory.getLogger(Database.class);
 
-    public static final String INIT_SQL = "sql/init_db.sql";
-    public static final String POPULATE_SQL = "sql/populate_db.sql";
+
+
     public static final String MAX_PROJECTS_CLIENT_SQL = "sql/find_max_projects_client.sql";
     public static final String YOUNGEST_ELDEST_WORKERS_SQL = "sql/find_youngest_eldest_workers.sql";
     public static final String MAX_SALARY_WORKER_SQL = "sql/find_max_salary_worker.sql";

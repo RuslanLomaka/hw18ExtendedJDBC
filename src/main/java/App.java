@@ -6,13 +6,9 @@ public class App {
     public static void main(String[] args) {
         new DatabaseInitService().init();
         DatabasePopulateService databasePopulateService = new DatabasePopulateService();
-        databasePopulateService.populate();//populate DB from the sql files
         databasePopulateService.collectionsInit();//populate the collections from DB
         databasePopulateService.clearAllTables();//clear DB's content
         databasePopulateService.populateFromCollections();//populate DB using prepared statements and batch processing
-
-
-
 
         DatabaseQueryService queryService = new DatabaseQueryService();
 
@@ -52,9 +48,6 @@ public class App {
         for (ProjectPrice projectPrice : projectPrices) {
             System.out.println(projectPrice);
         }
-
-
-
 
         long endTime = System.currentTimeMillis();
         System.out.println("Execution Time: " + (endTime - startTime) + "ms");
