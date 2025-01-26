@@ -7,8 +7,10 @@
     <file url="file://$PROJECT_DIR$/sql/find_max_salary_worker.sql" dialect="H2" />
     <file url="file://$PROJECT_DIR$/sql/find_youngest_eldest_workers.sql" dialect="H2" />
     <file url="file://$PROJECT_DIR$/sql/print_project_prices.sql" dialect="H2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/ClientService.java" dialect="H2" />
     <file url="file://$PROJECT_DIR$/src/main/java/DatabasePopulateService.java" dialect="H2" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V1__Create_Worker,Client,Projecr,Project_Worker.sql" dialect="H2" />
     <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V2__Populate_db.sql" dialect="H2" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V3__Add_auto_increment_to_client.sql" dialect="H2" />
   </component>
 </project>
